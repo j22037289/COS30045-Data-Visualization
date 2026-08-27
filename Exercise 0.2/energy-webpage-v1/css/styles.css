@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: #1b2a41;
+  color: #fff;
+}
+
+header .logo {
+  width: 32px;
+  height: 32px;
+}
+
+main {
+  padding: 2rem;
+}
+
+footer {
+  padding: 1rem 2rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.875rem;
+}
