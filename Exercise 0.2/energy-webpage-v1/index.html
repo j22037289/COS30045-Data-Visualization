@@ -3,22 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Energy Data Webpage</title>
+  <title>Home | Energy Data Webpage</title>
   <link rel="icon" type="image/png" href="images/PowerIcon.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <img src="images/PowerIcon.png" alt="Power Icon" class="logo" />
-    <h1>Energy Data Webpage</h1>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <img src="images/PowerIcon.png" alt="Energy Data logo" class="logo" />
+        <span class="brand-name">Energy Data</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="televisions.html">Televisions</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <p>Welcome to the Energy Data Webpage for COS30045 Exercise 0.2.</p>
+    <section class="hero">
+      <h1>Appliance Energy Consumption in Australia</h1>
+      <p>
+        Placeholder overview: Australian households rely on a wide range of appliances every day,
+        from refrigerators and washing machines to televisions and air conditioners. Understanding
+        how much energy these appliances consume helps households make informed decisions and
+        reduce their electricity bills.
+      </p>
+    </section>
+
+    <section class="content-block">
+      <h2>Energy Use at a Glance</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Refrigerators</h3>
+          <p>Placeholder text: refrigerators run continuously and are among the largest contributors to household standby energy use.</p>
+        </article>
+        <article class="card">
+          <h3>Washing Machines</h3>
+          <p>Placeholder text: energy use varies significantly depending on water temperature and load size.</p>
+        </article>
+        <article class="card">
+          <h3>Televisions</h3>
+          <p>Placeholder text: screen size and technology (LED, OLED, LCD) have a major impact on power draw. See the Televisions page for details.</p>
+        </article>
+        <article class="card">
+          <h3>Air Conditioners</h3>
+          <p>Placeholder text: cooling and heating appliances are typically the highest seasonal energy consumers in Australian homes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How is appliance energy consumption measured?
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Placeholder answer: energy consumption is typically measured in kilowatt-hours (kWh) over a
+          given period, based on an appliance's power rating and usage time.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What does the Energy Rating star label mean?
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Placeholder answer: the star rating compares the energy efficiency of similar appliances,
+          with more stars indicating lower energy use for a comparable size and feature set.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How can I reduce my appliance's energy use?
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Placeholder answer: simple steps include switching off standby power, choosing efficient
+          settings, and replacing old appliances with higher star-rated models.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Where does the data on this website come from?
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Placeholder answer: figures shown on this site are placeholder values for the purposes of
+          this exercise and will later be replaced with real Australian energy market data.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 COS30045 Data Visualisation</p>
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> Haresh Suri. All rights reserved.</p>
+    <p class="genai-note">Portions of this website's content and code were developed with the assistance of Claude (Anthropic), a generative AI tool.</p>
   </footer>
 
   <script src="js/scripts.js"></script>
