@@ -95,6 +95,39 @@ function initCalculator() {
     return { dailyKwh, monthlyKwh, yearlyKwh, dailyCost, monthlyCost, yearlyCost };
   }
 
+  function buildResultGroup(groupTitle, items) {
+    const group = document.createElement("div");
+    group.className = "result-group";
+
+    const groupHeading = document.createElement("h4");
+    groupHeading.className = "result-group-title";
+    groupHeading.textContent = groupTitle;
+    group.appendChild(groupHeading);
+
+    const grid = document.createElement("div");
+    grid.className = "result-grid";
+
+    items.forEach(([label, value]) => {
+      const card = document.createElement("div");
+      card.className = "result-card";
+
+      const labelEl = document.createElement("span");
+      labelEl.className = "result-label";
+      labelEl.textContent = label;
+
+      const valueEl = document.createElement("span");
+      valueEl.className = "result-value";
+      valueEl.textContent = value;
+
+      card.appendChild(labelEl);
+      card.appendChild(valueEl);
+      grid.appendChild(card);
+    });
+
+    group.appendChild(grid);
+    return group;
+  }
+
   function renderResults(results) {
     resultsPanel.innerHTML = "";
 
@@ -102,32 +135,21 @@ function initCalculator() {
     heading.textContent = "Estimated Energy Use & Cost";
     resultsPanel.appendChild(heading);
 
-    const rows = [
-      ["Daily energy use", `${results.dailyKwh.toFixed(2)} kWh`],
-      ["Monthly energy use", `${results.monthlyKwh.toFixed(2)} kWh`],
-      ["Yearly energy use", `${results.yearlyKwh.toFixed(2)} kWh`],
-      ["Daily cost", `$${results.dailyCost.toFixed(2)}`],
-      ["Monthly cost", `$${results.monthlyCost.toFixed(2)}`],
-      ["Yearly cost", `$${results.yearlyCost.toFixed(2)}`],
-    ];
+    resultsPanel.appendChild(
+      buildResultGroup("Energy Consumption", [
+        ["Daily", `${results.dailyKwh.toFixed(2)} kWh`],
+        ["Monthly", `${results.monthlyKwh.toFixed(2)} kWh`],
+        ["Yearly", `${results.yearlyKwh.toFixed(2)} kWh`],
+      ])
+    );
 
-    const list = document.createElement("dl");
-    list.className = "result-list";
-
-    rows.forEach(([label, value]) => {
-      const dt = document.createElement("dt");
-      dt.className = "result-label";
-      dt.textContent = label;
-
-      const dd = document.createElement("dd");
-      dd.className = "result-value";
-      dd.textContent = value;
-
-      list.appendChild(dt);
-      list.appendChild(dd);
-    });
-
-    resultsPanel.appendChild(list);
+    resultsPanel.appendChild(
+      buildResultGroup("Estimated Cost", [
+        ["Daily", `$${results.dailyCost.toFixed(2)}`],
+        ["Monthly", `$${results.monthlyCost.toFixed(2)}`],
+        ["Yearly", `$${results.yearlyCost.toFixed(2)}`],
+      ])
+    );
   }
 
   function renderInvalidState() {
